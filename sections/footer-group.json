@@ -8,21 +8,14 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "hero-banner": {
-      "type": "hero-banner",
-      "settings": {}
+    "name": "footer-group",
+    "type": "footer",
+    "sections":{
+        "main": {
+            "type": "footer",
+            "settings": {}
+        },
+        
     },
-    "main": {
-      "type": "header",
-      "custom_css": [
-        ".container {width: 1170px; height: auto; margin: 0px auto;}"
-      ],
-      "settings": {}
-    }
-  },
-  "order": [
-    "hero-banner",
-    "main"
-  ]
-}
+    "order":  ["main"]
+} 

@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    {{ 'base.css' | asset_url | stylesheet_tag }}
      {{ content_for_header }}
 </head>
 <body>
+    <div class="container">
     <header>
-        <p>this is a header this is the header content</p>
+        <p>{% sections "header-group" %}</p>
     </header>
     <main>
         {{ content_for_layout }} 
     </main>
-    <footer><p>this is a footer</p></footer>
+    <footer>{% sections "footer-group" %} </footer>
+    </div>
 </body>
 </html>
