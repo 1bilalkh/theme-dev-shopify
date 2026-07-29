@@ -9,20 +9,12 @@
  */
 {
   "sections": {
-    "hero-banner": {
-      "type": "hero-banner",
-      "settings": {}
-    },
-    "main": {
-      "type": "header",
-      "custom_css": [
-        ".container {width: 1170px; height: auto; margin: 0px auto;}"
-      ],
+    "hero": {
+      "type": "hero",
       "settings": {}
     }
   },
   "order": [
-    "hero-banner",
-    "main"
+    "hero"
   ]
 }

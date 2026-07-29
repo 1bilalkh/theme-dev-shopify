@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'output.css' | asset_url | stylesheet_tag }}
+    
      {{ content_for_header }}
 </head>
 <body>
-    <div class="container">
-    <header>
-        <p>{% sections "header-group" %}</p>
+    
+    <header class="announcement-bar border-b border-gray-300 bg-gray-100 py-3 px-4 mb-2 text-center">
+        
+        <div class="container">
+            {% sections "header-group" %}
+        </div>
     </header>
-    <main>
-        {{ content_for_layout }} 
-    </main>
-    <footer>{% sections "footer-group" %} </footer>
+    <div class="container">
+    <div class="maincontent">
+         {{ content_for_layout }} 
     </div>
+       </div>
+   
+    <footer>
+        <div class="container">
+            {% sections "footer-group" %}
+        </div>
+    </footer>
+     {{ 'theme.js' | asset_url | script_tag }}
 </body>
 </html>

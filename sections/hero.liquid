@@ -1,0 +1,20 @@
+<section class="hero py-18 px-4">
+  <div class="page-width">
+    <h1 class="text-6xl font-medium pb-8">Welcome to My Shopify Store</h1>
+    <a href="#" class="inline-block bg-black text-white py-2 px-4 rounded hover:bg-gray-800">Shop Now</a>
+    {% for product in collections.all.products %}
+{% endfor %}
+</div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

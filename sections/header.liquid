@@ -1,12 +1,32 @@
-<div class="container">
-    <h1>{{ shop.name }}</h1>
-    <nav>
-  <ul>
-    {% for link in linklists.main-menu.links %}
-      <li>
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</nav>
-</div>
+
+    <header class="navbar  border-gray-300 py-3 px-4">
+      <a href="{{ routes.root_url }}" class="header__logo-link"><h3>Logo</h3></a>
+      <button class="header__menu-toggle" aria-label="Toggle menu" id="toggleBtn">
+        <svg class="icon icon-menu" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <nav class="header__menu" id="menu">
+        <ul>
+          {% for link in section.settings.menu.links %}
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

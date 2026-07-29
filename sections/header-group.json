@@ -8,17 +8,20 @@
  * ------------------------------------------------------------
  */
 {
-    "name": "header-group",
-        "type": "header",
-        "sections":{
-            "main": {
-                "type": "header",
-                "settings": {}
-            },
-            "announcement-bar": {
-                "type": "announcement-bar",
-                "settings": {}
-            }
-        },
-    "order":  ["announcement-bar", "main"]
-} 
+  "name": "Header group",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {}
+    },
+    "main": {
+      "type": "header",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "main"
+  ]
+}

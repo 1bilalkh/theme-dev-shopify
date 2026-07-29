@@ -1,1 +1,17 @@
-<p>this is the announcement bar</p>
+<div class=" text-black text-center py-2">
+  <p class="text-center border-b pb-4 border-gray-300">{{ section.settings.text }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Free shipping on all orders!"
+    }
+  ]
+}
+{% endschema %}

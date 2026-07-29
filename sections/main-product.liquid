@@ -1,0 +1,45 @@
+<div class="page-width flex">
+  <div class="w-1/2 p-4 bg-gray-200">
+  <h1>{{ product.title }}</h1>
+
+  {% if product.featured_image %}
+    <a href="{{ product.url }}">
+    <img
+      src="{{ product.featured_image | image_url: width: 600 }}"
+      alt="{{ product.title }}"
+      width="600"
+      height="600">
+      </a>
+  {% endif %}
+  
+
+  <h3>{{ product.price | money }}</h3>
+
+  <div>
+    {{ product.description }}
+  </div>
+</div>
+  <div class="w-1/2 p-4 bg-gray-300">
+          <form method="post" action="{{ routes.cart_add_url }}">
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+        >
+
+        <button
+          type="submit"
+          class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700"
+        >
+          Add to Cart
+        </button>
+      </form>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "settings": []
+}
+{% endschema %}

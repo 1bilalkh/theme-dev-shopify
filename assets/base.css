@@ -12,3 +12,76 @@ body {
     height: auto;
     margin: 0px auto;
 }
+header.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+nav ul {
+    display: flex;
+    gap: 10px;
+}
+nav ul li, nav ul li a {
+    list-style: none;
+    text-decoration: none;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.product-card {
+    flex: 0 0 calc(10% - 15px);
+}
+
+@media (max-width: 680px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .announcement-bar {
+        width: 100%;
+    }
+    nav.header__menu {
+        display: none;
+    }
+    .header__menu{
+        position: absolute;
+        top: 100%;  
+        padding: 10px;
+        left: 0;
+    }
+    header.navbar {
+        position: relative;
+    }
+    .header__menu ul{
+        display: block;
+        padding: 0;
+    }
+    .header__menu.active {
+    display: block;
+    width: 100%;
+}
+.header__menu ul li {
+    text-align: left;
+    padding: 4px 0 4px 0;
+}
+.header__menu ul {
+    background: #ccc;
+    padding: 20px;
+}
+.header__menu {
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  display:block;
+}
+}
+@media screen and (min-width: 679px) {
+    .header__menu-toggle {
+        display: none;
+    }
+}
+
+
+
