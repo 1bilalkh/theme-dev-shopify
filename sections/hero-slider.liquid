@@ -1,0 +1,76 @@
+
+  <section class="py-12 home-hero-slider">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="hero-slide py-2 flex flex-wrap gap-6">
+        {% for block in section.blocks %}
+         <div class="w-full md:w-[calc(33.333%-16px)] relative">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 2000 }}"
+            alt="{{ block.settings.heading | escape }}"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+          >
+        {% endif %}
+
+        <div class="hero-content absolute bottom-8 left-1/2 -translate-x-1/2  bg-white/40 text-dark w-3/4 text-center  text-white p-6">
+          <h2 class="text-2xl font-medium text-black">{{ block.settings.heading }}</h2>
+          <p class="text-sm mt-1">{{ block.settings.description }}</p>
+
+          {% if block.settings.button_link != blank %}
+            <a href="{{ block.settings.button_link }}" class="border-b-2 border-black text-black pb-1 hover:border-blue-600 hover:text-blue-600 transition">
+              {{ block.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+{% schema %}
+{
+  "name": "Hero Slider",
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Banner Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slider"
+    }
+  ]
+}
+{% endschema %}

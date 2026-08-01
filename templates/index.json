@@ -12,9 +12,60 @@
     "hero": {
       "type": "hero",
       "settings": {}
+    },
+    "hero_slider": {
+      "type": "hero-slider",
+      "blocks": {
+        "slide_gJgRd6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/sub-banner-03.webp",
+            "heading": "Fashion Traingle",
+            "description": "",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/fashion-traingle"
+          }
+        },
+        "slide_YFLFaz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/sub-banner-02.webp",
+            "heading": "Women Shoes",
+            "description": "",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "slide_LEkWKL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/sub-banner-01.webp",
+            "heading": "Trendy Clothes",
+            "description": "",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "slide_gJgRd6",
+        "slide_YFLFaz",
+        "slide_LEkWKL"
+      ],
+      "settings": {}
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": "products",
+        "products_to_show": 8
+      }
     }
   },
   "order": [
-    "hero"
+    "hero",
+    "hero_slider",
+    "featured_products"
   ]
 }

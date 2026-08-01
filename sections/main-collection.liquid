@@ -1,18 +1,19 @@
-<h1>{{ collection.title }}</h1>
+<section class="container">
+<h1 class="text-3xl pb-6 pt-6">{{ collection.title }}</h1>
 
-<div class="flex-container">
+<div class="flex flex-wrap mb-4">
  
   {% for product in collection.products %}
-    <div class="product-card">
+    <div class="basis-full md:basis-1/2 lg:basis-1/4 p-2 border-b border-gray border-black/20">
       <a href="{{ product.url }}">
         {{ product.featured_image | image_url: width: 400 | image_tag }}
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.price | money }}</p>
+        <h3 class="text-xl font-medium pb-2 pt-2">{{ product.title | truncatewords: 6  }}</h3>
+        <p class="text-base pt-3">{{ product.price | money }}</p>
       </a>
     </div>
   {% endfor %}
 </div>
-
+</section>
 {% schema %}
 {
   "name": "Main Collection"

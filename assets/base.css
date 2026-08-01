@@ -16,6 +16,7 @@ header.navbar {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
 }
 nav ul {
     display: flex;
@@ -51,6 +52,7 @@ nav ul li, nav ul li a {
         top: 100%;  
         padding: 10px;
         left: 0;
+        z-index: 2;
     }
     header.navbar {
         position: relative;
@@ -60,8 +62,8 @@ nav ul li, nav ul li a {
         padding: 0;
     }
     .header__menu.active {
-    display: block;
-    width: 100%;
+        display: block;
+        width: 100%;    
 }
 .header__menu ul li {
     text-align: left;
@@ -82,6 +84,264 @@ nav ul li, nav ul li a {
         display: none;
     }
 }
-
+.header__menu-close{
+    display:none;
+}
+.header__menu-toggle{
+    cursor: pointer;
+}
+.buttonactive .header__menu-close{
+    display:block;
+}
+.buttonactive .header__menu-toggle{
+    display:none;
+}
+.main-content_home {
+    padding-top: 0;
+}
+.main-content {
+    background: #fff;
+    flex: 1;
+    min-width: 0;
+}
+.main-content_home #aiwb-hero .hero {
+    padding: 184px 0 192px;
+}
+#aiwb-hero .hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--hero-grad);
+    padding: 24px 0 92px;
+}
+#aiwb-hero .hero__blob.b2 {
+    width: 74vw;
+    height: 74vw;
+    background: #FFCEA6;
+    opacity: 1;
+    left: -29vw;
+    top: -37vw;
+}
+#aiwb-hero .hero__blob.b1 {
+    width: 56vw;
+    height: 56vw;
+    background: #61D2FF;
+    opacity: .75;
+    right: -18vw;
+    bottom: -24vw;
+}
+#aiwb-hero .hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(clamp(60px, 12vw, 180px));
+    pointer-events: none;
+}
+#aiwb-hero .hero__swirl.s1 {
+    width: 759px;
+    right: 88px;
+    bottom: -205px;
+    opacity: .8;
+}
+#aiwb-hero .hero__swirl.s2 {
+    width: 709px;
+    left: 84px;
+    top: -287px;
+    opacity: .5;
+}
+#aiwb-hero .hero__swirl {
+    position: absolute;
+    pointer-events: none;
+    filter: invert(1);
+}
+:is(#aiwb-hero, #aiwb-app) :is(img, svg) {
+    max-width: 100%;
+    display: block;
+}
+#aiwb-hero .hero__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    text-align: center;
+}
+:is(#aiwb-hero, #aiwb-app) {
+    --ink: #243238;
+    --ink-soft: #696F8E;
+    --blue: #00A3FF;
+    --orange: #F9440A;
+    --green: #31AF36;
+    --card-border: #BFD6F4;
+    --card-radius: 30px;
+    --accent-grad: linear-gradient(90deg, #1DC8FF 0%, #B6EE00 100%);
+    --hero-grad: linear-gradient(to bottom left, #86FF52 0%, #EBFF67 49%, #FFDE5B 100%);
+    --green-grad: linear-gradient(180deg, #FDFFE8 0%, #D1FFA9 100%);
+    --soft-shadow: 0 14px 34px rgba(29,36,50,.10);
+    --font: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  :is(#aiwb-hero, #aiwb-app) {
+    box-sizing: border-box; scroll-behavior: smooth; margin: 0;
+    font-family: var(--font); font-size: 16px; font-weight: 400; line-height: 1.2;
+    color: var(--ink); background: #fff; text-align: left;
+    -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  :is(#aiwb-hero, #aiwb-app) *,
+  :is(#aiwb-hero, #aiwb-app) *::before,
+  :is(#aiwb-hero, #aiwb-app) *::after { box-sizing: border-box; letter-spacing: normal; text-transform: none; font-style: normal; }
+  :is(#aiwb-hero, #aiwb-app) :is(h1, h2, h3, h4, h5, h6) { margin: 0; line-height: 1.15; }
+  :is(#aiwb-hero, #aiwb-app) :is(p, figure, blockquote, ul, ol) { margin: 0; }
+  :is(#aiwb-hero, #aiwb-app) :is(img, svg) { max-width: 100%; display: block; }
+  :is(#aiwb-hero, #aiwb-app) a { color: inherit; text-decoration: none; }
+  :is(#aiwb-hero, #aiwb-app) button { font-family: inherit; line-height: normal; }
+  :is(#aiwb-hero, #aiwb-app) .container { width: 100%; max-width: 1340px; margin: 0 auto; padding: 0 40px; }
+  :is(#aiwb-hero, #aiwb-app) .material-symbols-rounded { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; line-height: 1; }
+#aiwb-hero /* ======================== HERO ======================== */
+  .hero { position: relative; overflow: hidden; background: var(--hero-grad); padding: 24px 0 92px; }
+#aiwb-hero /* blobs are sized/positioned in vw so they keep the same proportion
+    (and thus the same hue composition as the design mockups) at every viewport
+    width — fixed px sizes washed the hero out at narrow-desktop widths. */
+  .hero__blob { position: absolute; border-radius: 50%; filter: blur(clamp(60px, 12vw, 180px)); pointer-events: none; }
+#aiwb-hero .hero__blob.b1 { width: 56vw; height: 56vw; background: #61D2FF; opacity: .75; right: -18vw; bottom: -24vw; }
+#aiwb-hero .hero__blob.b2 { width: 74vw; height: 74vw; background: #FFCEA6; opacity: 1; left: -29vw; top: -37vw; }
+#aiwb-hero .hero__swirl { position: absolute; pointer-events: none; filter: invert(1); }
+#aiwb-hero .hero__swirl.s1 { width: 759px; right: 88px; bottom: -205px; opacity: .8; }
+#aiwb-hero .hero__swirl.s2 { width: 709px; left: 84px; top: -287px; opacity: .5; }
+#aiwb-hero .hero .container { position: relative; z-index: 2; }
+#aiwb-hero .hero__inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center; }
+#aiwb-hero .hero__eyebrow { font-size: 20px; font-weight: 400; color: var(--ink); margin: 0; }
+/* breadcrumbs — host theme markup (includes/breadcrumbs.css) rendered inside the hero.
+   Repainted to the hero ink instead of the theme grey, home icon included (that one is a
+   background SVG with a baked-in fill, so it has to be re-inlined rather than recoloured).
+   The hero's top padding was cut from 64px to 24px to lift them clear of the copy; the
+   40px below restores the original distance to .hero__eyebrow. */
+#aiwb-hero .breadcrumbs_wrapper { margin-bottom: 13px; }
+#aiwb-hero .breadcrumbs-link { color: var(--ink); }
+#aiwb-hero .breadcrumbs-link:hover { color: var(--ink-soft); }
+#aiwb-hero .breadcrumbs-link_home {
+    background-image: url("data:image/svg+xml,%3Csvg%20width=%2220%22%20height=%2220%22%20viewBox=%220%200%2020%2020%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M2.96069%209.93799C3.22368%209.93799%203.43688%2010.1512%203.43688%2010.4142V18.2196H7.92963C8.19262%2018.2196%208.40582%2018.4328%208.40582%2018.6958C8.40582%2018.9587%208.19262%2019.1719%207.92963%2019.1719H2.96069C2.69769%2019.1719%202.4845%2018.9587%202.4845%2018.6958V10.4142C2.4845%2010.1512%202.69769%209.93799%202.96069%209.93799ZM17.0394%2010.3521C17.3024%2010.3521%2017.5156%2010.5653%2017.5156%2010.8283V18.6958C17.5156%2018.9587%2017.3024%2019.1719%2017.0394%2019.1719H12.0704C11.8074%2019.1719%2011.5942%2018.9587%2011.5942%2018.6958C11.5942%2018.4328%2011.8074%2018.2196%2012.0704%2018.2196H16.5632V10.8283C16.5632%2010.5653%2016.7764%2010.3521%2017.0394%2010.3521Z%22%20fill=%22%23243238%22/%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M9.66328%200.139473C9.84925%20-0.046491%2010.1508%20-0.046491%2010.3367%200.139473L19.8605%209.66328C20.0465%209.84925%2020.0465%2010.1508%2019.8605%2010.3367C19.6746%2010.5227%2019.3731%2010.5227%2019.1871%2010.3367L10%201.14963L0.812908%2010.3367C0.626944%2010.5227%200.325437%2010.5227%200.139473%2010.3367C-0.046491%2010.1508%20-0.046491%209.84925%200.139473%209.66328L9.66328%200.139473Z%22%20fill=%22%23243238%22/%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M12.8364%201.30432C12.8364%201.04132%2013.0496%200.828125%2013.3126%200.828125H16.2112C16.4742%200.828125%2016.6874%201.04132%2016.6874%201.30432V4.20287C16.6874%204.46586%2016.4742%204.67906%2016.2112%204.67906C15.9482%204.67906%2015.735%204.46586%2015.735%204.20287V1.78051H13.3126C13.0496%201.78051%2012.8364%201.56731%2012.8364%201.30432Z%22%20fill=%22%23243238%22/%3E%3C/svg%3E");
+  }
+/* same swap as .breadcrumbs-link:hover, but the icon's colour is baked into the SVG fill,
+   so the hover state has to be a second inlined copy rather than a colour change */
+#aiwb-hero .breadcrumbs-link_home:hover {
+    background-image: url("data:image/svg+xml,%3Csvg%20width=%2220%22%20height=%2220%22%20viewBox=%220%200%2020%2020%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M2.96069%209.93799C3.22368%209.93799%203.43688%2010.1512%203.43688%2010.4142V18.2196H7.92963C8.19262%2018.2196%208.40582%2018.4328%208.40582%2018.6958C8.40582%2018.9587%208.19262%2019.1719%207.92963%2019.1719H2.96069C2.69769%2019.1719%202.4845%2018.9587%202.4845%2018.6958V10.4142C2.4845%2010.1512%202.69769%209.93799%202.96069%209.93799ZM17.0394%2010.3521C17.3024%2010.3521%2017.5156%2010.5653%2017.5156%2010.8283V18.6958C17.5156%2018.9587%2017.3024%2019.1719%2017.0394%2019.1719H12.0704C11.8074%2019.1719%2011.5942%2018.9587%2011.5942%2018.6958C11.5942%2018.4328%2011.8074%2018.2196%2012.0704%2018.2196H16.5632V10.8283C16.5632%2010.5653%2016.7764%2010.3521%2017.0394%2010.3521Z%22%20fill=%22%23696F8E%22/%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M9.66328%200.139473C9.84925%20-0.046491%2010.1508%20-0.046491%2010.3367%200.139473L19.8605%209.66328C20.0465%209.84925%2020.0465%2010.1508%2019.8605%2010.3367C19.6746%2010.5227%2019.3731%2010.5227%2019.1871%2010.3367L10%201.14963L0.812908%2010.3367C0.626944%2010.5227%200.325437%2010.5227%200.139473%2010.3367C-0.046491%2010.1508%20-0.046491%209.84925%200.139473%209.66328L9.66328%200.139473Z%22%20fill=%22%23696F8E%22/%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M12.8364%201.30432C12.8364%201.04132%2013.0496%200.828125%2013.3126%200.828125H16.2112C16.4742%200.828125%2016.6874%201.04132%2016.6874%201.30432V4.20287C16.6874%204.46586%2016.4742%204.67906%2016.2112%204.67906C15.9482%204.67906%2015.735%204.46586%2015.735%204.20287V1.78051H13.3126C13.0496%201.78051%2012.8364%201.56731%2012.8364%201.30432Z%22%20fill=%22%23696F8E%22/%3E%3C/svg%3E");
+  }
+#aiwb-hero .hero h2 { font-size: clamp(36px, 5.4vw, 62px); font-weight: 700; line-height: 1.08; letter-spacing: -.02em; color: var(--ink); margin: 0; }
+#aiwb-hero /* prompt card */
+  .prompt-card {
+    position: relative; width: 100%; max-width: 850px; background: #fff; border-radius: var(--card-radius);
+    box-shadow: var(--soft-shadow); text-align: left;
+  }
+#aiwb-hero .pc-input {
+    display: block; width: 100%; min-height: 150px; resize: none; box-sizing: border-box;
+    border: none; outline: none; background: transparent; border-radius: var(--card-radius);
+    padding: 26px 90px 80px 28px; font-family: inherit; font-size: 18px; line-height: 1.5; color: var(--ink);
+  }
+#aiwb-hero .pc-input::placeholder { color: var(--ink-soft); opacity: 1; }
+#aiwb-hero .pc-send {
+    position: absolute; right: 20px; bottom: 20px; width: 44px; height: 44px; border-radius: 50%;
+    border: none; background: var(--blue); display: grid; place-items: center; color: #fff; cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0,163,255,.26); transition: transform .15s, filter .15s;
+  }
+#aiwb-hero .pc-send:hover { transform: scale(1.06); filter: brightness(1.03); }
+#aiwb-hero .pc-send { outline: none; -webkit-tap-highlight-color: transparent; }
+#aiwb-hero .pc-send:focus { outline: none; }
+#aiwb-hero .pc-send:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+#aiwb-hero .pc-send .material-symbols-rounded { font-size: 22px; }
+#aiwb-hero .pc-send.disabled { background: #b0bec5; box-shadow: none; cursor: default; pointer-events: none; }
+#aiwb-hero .pc-send.disabled:hover { transform: none; filter: none; }
+#aiwb-hero .pc-msg {
+    /* design-system tooltip look (themes/f1/assets/css/includes/tooltips.css: .custom-tooltip-content) */
+    position: absolute; right: 16px; bottom: 76px; z-index: 6;
+    width: max-content; max-width: 300px; margin: 0;
+    background: #546e7a; color: #fff; text-align: left;
+    font-size: 14px; line-height: 21px; font-weight: 400;
+    padding: 12px 16px; border-radius: 3px; box-shadow: 0 5px 10px rgba(36,50,56,.2);
+    display: none;
+  }
+#aiwb-hero .pc-msg.show { display: block; }
+#aiwb-hero .pc-msg::after {
+    content: ''; position: absolute; top: 100%; right: 20px;
+    border: 7px solid transparent; border-top-color: #546e7a;
+  }
+#aiwb-hero /* prompt card - animated accent border (site colors) */
+  @property --pc-angle { syntax: '<angle>'; inherits: true; initial-value: 0turn; }
+@keyframes pc-rotate { to { --pc-angle: 1turn; } }
+#aiwb-hero .prompt-card::before {
+    content: ''; position: absolute; inset: -1.5px; border: 1.5px solid transparent; border-radius: inherit;
+    background-image: conic-gradient(from var(--pc-angle),
+      rgba(0,163,255,0) 0%, var(--blue) 22%, #B6EE00 50%, var(--blue) 78%, rgba(0,163,255,0) 100%);
+    background-origin: border-box;
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-clip: content-box, border-box;
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    mask-clip: content-box, border-box;
+    mask-composite: exclude;
+    animation: pc-rotate 8s linear infinite;
+    pointer-events: none;
+  }
+@media (prefers-reduced-motion: reduce) {
+#aiwb-hero .prompt-card::before { animation: none; }
+}
+#aiwb-hero .prompt-card:focus-within::before,
+#aiwb-hero .prompt-card.has-value::before { animation: none; background: var(--blue); }
+/* attached-image previews — shared: AIWB.setupPromptUploader() renders these thumbs
+   into both the hero prompt card and the landing embed's builder modal (#aiwb-app) */
+:is(#aiwb-hero, #aiwb-app) .pc-files { display: flex; flex-wrap: wrap; gap: 8px; padding: 22px 28px 0; }
+:is(#aiwb-hero, #aiwb-app) .pc-files:empty { display: none; }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb { position: relative; width: 54px; height: 54px; border-radius: 12px; background: #F1FAFE; flex: none; }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb__overlay { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 12px; background: rgba(36,50,56,.5); }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb__spin { width: 20px; height: 20px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: pc-spin 1s linear infinite; }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb__close { position: absolute; top: -7px; right: -7px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; cursor: pointer; opacity: 0; transition: opacity .2s; }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb:hover .pc-thumb__close { opacity: 1; }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb__close:hover { background: #000; }
+:is(#aiwb-hero, #aiwb-app) .pc-thumb__err { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 12px; background: rgba(212,58,9,.9); color: #fff; cursor: pointer; }
+@keyframes pc-spin { to { transform: rotate(360deg); } }
+/* hero-only */
+#aiwb-hero .prompt-card.has-files .pc-input { min-height: 100px; }
+#aiwb-hero .pc-attach {
+    position: absolute; left: 20px; bottom: 20px; width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--card-border); background: #fff; color: var(--ink-soft);
+    display: grid; place-items: center; cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+  }
+#aiwb-hero .pc-attach:hover { background: #F1FAFE; color: var(--blue); border-color: var(--blue); }
+#aiwb-hero .pc-attach { outline: none; -webkit-tap-highlight-color: transparent; }
+#aiwb-hero .pc-attach:focus { outline: none; }
+#aiwb-hero .pc-attach:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+#aiwb-hero .pc-attach .material-symbols-rounded { font-size: 22px; }
+#aiwb-hero .pc-attach.disabled { opacity: .45; cursor: default; pointer-events: none; }
+#aiwb-hero /* agent pills */
+  .agent-pills {
+    display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+    background: rgba(255,255,255,.34); border-radius: 40px; padding: 14px 16px;
+  }
+#aiwb-hero .agent-pill {
+    display: inline-flex; align-items: center; gap: 9px; background: #fff; color: var(--ink);
+    font-size: 15px; font-weight: 500; border-radius: 999px; padding: 10px 18px 10px 18px;
+    box-shadow: 0 2px 8px rgba(36,50,56,.08);
+  }
+#aiwb-hero .agent-pill .ic { display: grid; place-items: center; color: var(--ink); flex: none; }
+#aiwb-hero .agent-pill .ic .material-symbols-rounded { font-size: 20px; font-variation-settings: 'FILL' 1; }
+@media (max-width: 760px) {
+#aiwb-hero .container { padding: 0 18px; }
+#aiwb-hero .hero { padding: 16px 0 72px; }
+#aiwb-hero .breadcrumbs_wrapper { margin-bottom: 28px; }
+#aiwb-hero .pc-input { min-height: 120px; padding: 20px 60px 72px 18px; font-size: 16px; }
+#aiwb-hero .pc-send { right: 14px; bottom: 14px; width: 40px; height: 40px; }
+#aiwb-hero .pc-msg { right: 12px; bottom: 66px; }
+#aiwb-hero .pc-msg::after { right: 18px; }
+#aiwb-hero .pc-attach { left: 14px; bottom: 14px; width: 40px; height: 40px; }
+#aiwb-hero .pc-files { padding: 16px 18px 0; }
+#aiwb-hero .agent-pills { width: 100%; }
+}
+.home-hero-slider .relative img{
+    width: 100%;
+}
+.footer {
+    background-color: #243238;
+    font-size: 14px;
+    line-height: 21px;
+}
 
 

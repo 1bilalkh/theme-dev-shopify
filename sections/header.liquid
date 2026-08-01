@@ -1,20 +1,33 @@
+<header class="navbar  border-gray-300 px-4">
+  <a href="{{ routes.root_url }}" class="header__logo">
+    {% if section.settings.logo %}
+      {{ section.settings.logo | image_url: width: 200 | image_tag: alt: shop.name }}
+    {% else %}
+      {{ shop.name }}
+    {% endif %}
+  </a>
 
-    <header class="navbar  border-gray-300 py-3 px-4">
-      <a href="{{ routes.root_url }}" class="header__logo-link"><h3>Logo</h3></a>
-      <button class="header__menu-toggle" aria-label="Toggle menu" id="toggleBtn">
-        <svg class="icon icon-menu" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
-          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-        </svg>
-      </button>
-      <nav class="header__menu" id="menu">
-        <ul>
-          {% for link in section.settings.menu.links %}
-            <li>
-              <a href="{{ link.url }}">{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
+  <span class="header__menu_buttons" id="toggleBtn">
+    <button class="header__menu-toggle" aria-label="Toggle menu">
+      <svg class="icon icon-menu" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
+        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    <button class="header__menu-close" aria-label="Close menu" id="closeBtn">
+      <svg class="icon icon-close" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+      </svg>
+    </button>
+  </span>
+  <nav class="header__menu" id="menu">
+    <ul>
+      {% for link in section.settings.menu.links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
 </header>
 
 {% schema %}
@@ -26,6 +39,11 @@
       "id": "menu",
       "label": "Menu",
       "default": "main-menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
     }
   ]
 }

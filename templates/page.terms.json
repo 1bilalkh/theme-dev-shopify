@@ -8,16 +8,10 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "footer-group",
-  "type": "footer",
   "sections": {
     "main": {
-      "type": "footer",
-      "settings": {
-        "footer_menu": "footer",
-        "menu_1": "privacy-policy",
-        "menu_2": "terms"
-      }
+      "type": "main-page",
+      "settings": {}
     }
   },
   "order": [
