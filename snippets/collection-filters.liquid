@@ -1,0 +1,80 @@
+<form method="get" action="{{ collection.url }}" class="space-y-6">
+
+  {% for filter in collection.filters %}
+
+    <div class="border-b pb-5">
+
+      <h3 class="text-lg font-semibold mb-4">
+        {{ filter.label }}
+      </h3>
+
+      {% case filter.type %}
+
+      {% when 'list' %}
+
+        {% for value in filter.values %}
+
+          <label class="flex items-center justify-between py-2">
+
+            <div class="flex items-center gap-3">
+
+              <input
+                type="checkbox"
+                name="{{ value.param_name }}"
+                value="{{ value.value }}"
+                {% if value.active %}
+                  checked
+                {% endif %}
+                onchange="this.form.submit()">
+
+              <span>{{ value.label }}</span>
+
+            </div>
+
+            <span class="text-gray-400">
+              {{ value.count }}
+            </span>
+
+          </label>
+
+        {% endfor %}
+
+      {% when 'price_range' %}
+
+        <div class="space-y-4">
+
+          <input
+            type="number"
+            name="{{ filter.min_value.param_name }}"
+            value="{{ filter.min_value.value.value }}"
+            placeholder="Minimum"
+            class="w-full border rounded-lg p-3">
+
+          <input
+            type="number"
+            name="{{ filter.max_value.param_name }}"
+            value="{{ filter.max_value.value.value }}"
+            placeholder="Maximum"
+            class="w-full border rounded-lg p-3">
+
+          <button
+            type="submit"
+            class="w-full btn-gradient">
+            Apply
+          </button>
+
+        </div>
+
+      {% endcase %}
+
+    </div>
+
+  {% endfor %}
+
+  <a
+    href="{{ collection.url }}"
+    class="block text-center bg-gray-200 py-3 rounded-lg hover:bg-gray-300">
+    Clear Filters
+  </a>
+
+</form>

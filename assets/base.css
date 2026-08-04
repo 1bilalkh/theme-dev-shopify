@@ -3,7 +3,6 @@
 :root {
     --font-body: "Rubik", sans-serif;
 }
-
 body {
     font-family: var(--font-body);
 }
@@ -52,10 +51,12 @@ nav ul li, nav ul li a {
         top: 100%;  
         padding: 10px;
         left: 0;
-        z-index: 2;
+        z-index: 5;
     }
     header.navbar {
-        position: relative;
+        /* position: relative; */
+        padding: 0px 18px !important;
+        width: 100%;
     }
     .header__menu ul{
         display: block;
@@ -64,13 +65,15 @@ nav ul li, nav ul li a {
     .header__menu.active {
         display: block;
         width: 100%;    
+        padding:0px;
 }
 .header__menu ul li {
     text-align: left;
-    padding: 4px 0 4px 0;
+    padding: 8px 0 8px 0;
+    border-bottom: 1px solid #ccc;
 }
 .header__menu ul {
-    background: #ccc;
+    background: #fff;
     padding: 20px;
 }
 .header__menu {
@@ -78,11 +81,44 @@ nav ul li, nav ul li a {
   transition: max-height 0.4s ease;
   display:block;
 }
+.shopify-section{
+    position: relative;
+}
+.announcement-bar {
+    padding: 0px;
+}
+.mobilehide{
+        display:none;
+}
+.header__menu_buttons{
+    display: flex;
+    gap: 14px;
+}
+
+
+
+
+
+
+
 }
 @media screen and (min-width: 679px) {
     .header__menu-toggle {
         display: none;
     }
+    .desktopehide{
+        display: none;  
+    }
+    .header__menu{
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    header.navbar{
+        position: relative;
+    }
+     
 }
 .header__menu-close{
     display:none;
@@ -264,8 +300,6 @@ nav ul li, nav ul li a {
     border: 7px solid transparent; border-top-color: #546e7a;
   }
 #aiwb-hero /* prompt card - animated accent border (site colors) */
-  @property --pc-angle { syntax: '<angle>'; inherits: true; initial-value: 0turn; }
-@keyframes pc-rotate { to { --pc-angle: 1turn; } }
 #aiwb-hero .prompt-card::before {
     content: ''; position: absolute; inset: -1.5px; border: 1.5px solid transparent; border-radius: inherit;
     background-image: conic-gradient(from var(--pc-angle),
@@ -344,4 +378,108 @@ nav ul li, nav ul li a {
     line-height: 21px;
 }
 
+
+.btn-gradient {
+    background: linear-gradient(90deg, #c43cf2 0%, #8b2cf5 50%, #2d0cb8 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 32px;
+    transition: all .3s ease;
+    box-shadow: 0 6px 20px rgba(91, 33, 182, .35);
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-gradient:hover {
+    background: linear-gradient(90deg, #d24cff 0%, #9b3bff 50%, #3b1ae6 100%) !important;
+    transform: translateY(-2px);
+}
+.cartimg_aftershop {
+    width: 100px;
+}
+
+.cartimg_aftershop img {
+    width: 100%;
+}
+.featuredhome .hidden {
+    display: none !important;
+}
+header.fixed {
+    position: fixed !important;
+    left: 50%;
+    top: 28px;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 100% !important;
+    box-shadow: 0px 8px 24px rgba(149, 149, 149, 0.2);
+    padding: 30px 20px 11px 20px;
+}
+ .fixed .header__menu {
+        top: 62%;
+ }
+
+ .sidebar-cart {
+    position: fixed;
+    top: 0;
+    right: -400px;      /* Hidden */
+    width: 400px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -5px 0 20px rgba(0,0,0,.15);
+    transition: right .3s ease;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.sidebar-cart.active {
+    right: 0;           /* Show */
+}
+.closedsidebar {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+}
+.header__cart-count{
+    cursor: pointer;
+}
+.cartprductlistsidebar {
+    height: 84vh;
+    overflow-y: auto;
+}
+/* Width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f5f3ff;
+  border-radius: 10px;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    #d946ef 0%,
+    #a855f7 30%,
+    #8b5cf6 60%,
+    #7c3aed 100%
+  );
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #ec4899 0%,
+    #a855f7 50%,
+    #6d28d9 100%
+  );
+}
 

@@ -14,12 +14,12 @@
   <div class="basis-full md:basis-1/5 md:ps-4">
     <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
 
-    <ul class="space-y-3">
+    <ul class="space-y-1">
       {% for link in linklists[section.settings.footer_menu].links %}
         <li>
           <a
             href="{{ link.url }}"
-            class="text-gray-300 hover:text-white transition"
+            class="text-gray-300 text-base hover:text-white transition"
           >
             {{ link.title }}
           </a>
@@ -35,41 +35,43 @@
   <div class="basis-full md:basis-1/5">
     <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
 
-    <ul class="space-y-3">
+    <ul class="space-y-1">
       <li class="text-white text-base">Email: info@example.com</li>
       <li class="text-white text-base">Phone: +92 300 1234567</li>
       <li class="text-white text-base">Karachi, Pakistan</li>
     </ul>
 
     <!-- Social Icons -->
-    <div class="flex gap-4 mt-6">
+    <div class="flex gap-2 mt-6">
       <a
         href="#"
         class="text-white w-10 h-10 rounded-full bg-gray-800 hover:bg-indigo-600 flex items-center justify-center transition"
       >
-        FB
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 320 512"
+        fill="currentColor"
+        class="w-5 h-5"
+      >
+        <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H297V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+      </svg>
       </a>
 
       <a
         href="#"
         class="text-white w-10 h-10 rounded-full bg-gray-800 hover:bg-indigo-600 flex items-center justify-center transition"
       >
-        IN
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 448 512"
+    fill="currentColor"
+    class="w-5 h-5"
+  >
+    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zM398.8 80c-22.1-22.1-51.5-34.2-82.8-34.2H132c-31.3 0-60.7 12.1-82.8 34.2S15 131.5 15 162.8v186.4c0 31.3 12.1 60.7 34.2 82.8S100.7 466 132 466h184c31.3 0 60.7-12.1 82.8-34.2s34.2-51.5 34.2-82.8V162.8c0-31.3-12.1-60.7-34.2-82.8zM368 349.2c0 28.7-23.3 52-52 52H132c-28.7 0-52-23.3-52-52V162.8c0-28.7 23.3-52 52-52h184c28.7 0 52 23.3 52 52v186.4z"/>
+  </svg>
       </a>
 
-      <a
-        href="#"
-        class="text-white w-10 h-10 rounded-full bg-gray-800 hover:bg-indigo-600 flex items-center justify-center transition"
-      >
-        IG
-      </a>
-
-      <a
-        href="#"
-        class="text-white w-10 h-10 rounded-full bg-gray-800 hover:bg-indigo-600 flex items-center justify-center transition"
-      >
-        X
-      </a>
+      
     </div>
   </div>
 </div>
@@ -78,7 +80,7 @@
 <div class="border-t border-gray-100 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
   <p class="text-base text-white">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} .</p>
 
-  <div class="flex gap-6 text-white text-sm">
+  <div class="flex gap-3 text-white text-sm">
     <a href="#" class="">
        {% for link in linklists[section.settings.menu_1].links %}
         <li class="list-none"><a href="{{ link.url }}" class="hover:text-gray-300 text-white transition text-base">{{ link.title }}</a></li>

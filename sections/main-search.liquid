@@ -1,0 +1,53 @@
+<section class="container py-10">
+
+  <h1 class="text-3xl font-bold mb-8">
+    Search Results
+  </h1>
+
+  {% if search.performed %}
+
+    {% if search.results_count > 0 %}
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        {% for product in search.results %}
+
+          {% if product.object_type == 'product' %}
+
+            <div class="border rounded-lg p-4">
+
+              <a href="{{ product.url }}">
+
+                {{
+                  product.featured_image
+                  | image_url: width: 400
+                  | image_tag
+                }}
+
+                <h2 class="mt-4 font-medium">
+                  {{ product.title }}
+                </h2>
+
+                <p class="text-purple-600 font-bold">
+                  {{ product.price | money }}
+                </p>
+
+              </a>
+
+            </div>
+
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    {% else %}
+
+      <p>No products found.</p>
+
+    {% endif %}
+
+  {% endif %}
+
+</section>

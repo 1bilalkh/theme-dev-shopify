@@ -1,4 +1,4 @@
-<header class="navbar  border-gray-300 px-4">
+<header class="navbar  border-gray-300 px-4" id="headertop">
   <a href="{{ routes.root_url }}" class="header__logo">
     {% if section.settings.logo %}
       {{ section.settings.logo | image_url: width: 200 | image_tag: alt: shop.name }}
@@ -6,20 +6,41 @@
       {{ shop.name }}
     {% endif %}
   </a>
-
-  <span class="header__menu_buttons" id="toggleBtn">
-    <button class="header__menu-toggle" aria-label="Toggle menu">
-      <svg class="icon icon-menu" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
-        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-      </svg>
-    </button>
-    <button class="header__menu-close" aria-label="Close menu" id="closeBtn">
-      <svg class="icon icon-close" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
-        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-      </svg>
-    </button>
-  </span>
-  <nav class="header__menu" id="menu">
+  <div class="flex gap-4">
+    <span class="header__menu_buttons" id="toggleBtn">
+      <button class="header__menu-toggle" aria-label="Toggle menu">
+        <svg class="icon icon-menu" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <button class="header__menu-close" aria-label="Close menu" id="closeBtn">
+        <svg class="icon icon-close" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </span>
+    <span onclick="openRightMenu()" id="cart-count" class="header__cart-count flex items-center gap-1 desktopehide relative">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M5 10L7 20H17L19 10" />
+          <path d="M4 10H20" />
+          <path d="M8 10L10 4H14L16 10" />
+        </svg>
+      </span>
+      <span  class="text-white absolute top-[-16px] left-3 text-sm right-10 w-6 h-6 bg-red-500 border-2 border-white rounded-full">{{- cart.item_count -}}</span>
+    </span>
+  </div>
+  <nav class="header__menu mx-auto" id="menu">
     <ul>
       {% for link in section.settings.menu.links %}
         <li>
@@ -28,7 +49,88 @@
       {% endfor %}
     </ul>
   </nav>
+  <div class="flex gap-4 items-center relative">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="w-full max-w-md hidden" id="searchBox">
+  <input
+    type="search"
+    name="q"
+    placeholder="Search products..."
+    class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    value="{{ search.terms | escape }}"
+  >
+
+  <input type="hidden" name="type" value="product">
+
+  
+</form>
+    <span
+      onclick="openRightMenu()"
+      id="cart-count"
+      class="header__cart-count flex items-center gap-1 mobilehide relative"
+    >
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M5 10L7 20H17L19 10" />
+          <path d="M4 10H20" />
+          <path d="M8 10L10 4H14L16 10" />
+        </svg>
+      </span>
+      <span class="text-white absolute top-[-16px] left-3 text-sm right-10 w-6 h-6 bg-red-500 border-2 border-white rounded-full">
+        {{- cart.item_count -}}
+      </span>
+    </span>
+    <span
+      id="searchToggle">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" />
+      </svg>
+    </span>
+    
+  </div>
 </header>
+<div
+  class="sidebar-cart w3-bar-block w3-card w3-animate-right relative pt-16"
+  style="display:none;right:0;"
+  id="rightMenu"
+>
+  <button onclick="closeRightMenu()" class="closedsidebar">
+    <svg class="icon icon-close absolute top-2 left-6" viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
+      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+  <div class="cartprductlistsidebar">
+    <div id="cart-items"></div>
+  </div>
+  <div class="mt-6 pt-4 sticky bottom-10 right-0 left-0 px-4 bg-white">
+    <a
+      href="/checkout"
+      class="block w-full btn-gradient py-4 rounded-lg font-semibold hover:bg-gray-800 transition"
+    >
+      Proceed to Checkout
+    </a>
+  </div>
+</div>
+
 
 {% schema %}
 {
